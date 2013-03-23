@@ -87,7 +87,7 @@ class DX_Remove_Oldies {
 			$other_post_types = $wpdb->get_results( $sql );
 		}
 		
-		include_once 'oldies_admin_view.php';
+		include_once 'oldies-admin-view.php';
 	}
 }
 
