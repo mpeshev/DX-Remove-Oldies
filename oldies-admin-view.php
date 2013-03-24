@@ -7,10 +7,10 @@
 	$wp_nonce = wp_nonce_field('delete-oldies', 'oldie-nonce');
 	?>
 	<?php foreach( $other_post_types as $other_post_type ) { ?>
-	<div>
+	<div class="cpt-entry">
 		<form action="" method="POST">
-			<span><?php echo $other_post_type->post_type; ?></span>
-			<span><input type="submit" name="delete" value="Delete" /></span>
+			<div class="cpt-left"><?php echo $other_post_type->post_type; ?></div>
+			<div><input type="submit" name="delete" value="Delete" /></div>
 			<input type="hidden" name="cpt_post_type" value="<?php echo esc_attr($other_post_type->post_type); ?>" />
 			<?php echo $wp_nonce; ?>
 		</form>

@@ -1,0 +1,10 @@
+.cpt-entry {
+	height: 40px;
+}
+.cpt-left {
+	float: left;
+	font-size: 16px;
+	line-height: 27px;
+	height: 40px;
+	width: 180px;
+}

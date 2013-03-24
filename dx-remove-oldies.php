@@ -4,7 +4,7 @@
  * Description: Remove posts from DB for post types that are no longer registered
  * Author: nofearinc
  * Author URI: http://devwp.eu/
- * Version: 0.1
+ * Version: 0.2
  * License: GPLv2 or later
  * 
  */
@@ -36,6 +36,7 @@
 class DX_Remove_Oldies {
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 	
 	public function add_plugin_page() {
@@ -88,6 +89,12 @@ class DX_Remove_Oldies {
 		}
 		
 		include_once 'oldies-admin-view.php';
+	}
+	
+	public function enqueue_scripts( $hook ) {
+		if( $hook == 'settings_page_remove_oldies' ) {
+			wp_enqueue_style('remove-oldies', plugins_url( 'remove-oldies.css', __FILE__ ) );
+		}
 	}
 }
 
