@@ -4,7 +4,7 @@
 <h4>Warning: clicking "Delete" would remove all post entries for that post type permanently from the database!</h4>
 
 <?php if( ! empty( $other_post_types ) && is_array( $other_post_types ) ) { 
-	$wp_nonce = wp_nonce_field('delete-olides', 'oldie');
+	$wp_nonce = wp_nonce_field('delete-oldies', 'oldie-nonce');
 	?>
 	<?php foreach( $other_post_types as $other_post_type ) { ?>
 	<div>

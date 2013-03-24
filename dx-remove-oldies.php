@@ -52,7 +52,7 @@ class DX_Remove_Oldies {
 		
 		// Delete has been fired?
 		if( isset( $_POST['delete'] ) && ! empty( $_POST['cpt_post_type'] ) ) {
-			if( isset( $_POST['oldie'] ) ) { // fix this && wp_verify_nonce( $_POST['oldie'], 'delete_oldies' ) ) ) {
+			if( isset( $_POST['oldie-nonce'] ) && wp_verify_nonce( $_POST['oldie-nonce'], 'delete-oldies' ) ) {
 				if( ! empty( $post_types ) && is_array( $post_types ) ) {
 					// Get the delete candidate
 					$cpt_to_delete = $_POST['cpt_post_type'];
@@ -64,8 +64,8 @@ class DX_Remove_Oldies {
 					$wpdb->delete( $wpdb->posts, array( 'post_type' => $cpt_to_delete ) );
 					
 					echo "<p>Posts in post_type $cpt_to_delete have been removed.</p>";
-				}
-			}	
+				} 
+			} 
 		}
 		
 		// After delete
